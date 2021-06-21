@@ -1,24 +1,24 @@
-import React,{useState,useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 
-export const Banner = () => {
+function Banner() {
 
-    const [count, setCount] = useState(0)
+	const [count, setCount] = useState(0);
+	const [name, setName] = useState("");
 
-    useEffect(() => {
-        console.log('Boom')
-    })
+	useEffect(() => {
+		console.log("Count is updated");
+	},[count]);
 
-    const updateState = () => {
-        setCount((prevCount) => prevCount+1)
-    }
-
-    return (
-            <div>
-				<button onClick={() => updateState()}>
-					State: {count}
-				</button>
-			</div>
-    )
+	return (
+		<div>
+			<button onClick={() => setCount(count + 1)}>State: {count}</button>
+			<input
+				type='text'
+				value={name}
+				onChange={(e) => setName(e.target.value)}
+			/>
+		</div>
+	);
 }
 
-
+export default Banner
